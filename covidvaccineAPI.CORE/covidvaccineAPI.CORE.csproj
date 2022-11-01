@@ -16,7 +16,6 @@
     <Folder Include="DATA\" />
     <Folder Include="DTO\" />
     <Folder Include="Common\" />
-    <Folder Include="Repository\" />
     <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
