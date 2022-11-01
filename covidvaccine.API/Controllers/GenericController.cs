@@ -7,50 +7,50 @@ using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace covidvaccine.API.Controllers
-{
-    [Route("api/[controller]")]
-    public class GenericController<T> : ControllerBase
+//namespace covidvaccine.API.Controllers
+//{
+//    [Route("api/[controller]")]
+//    public class GenericController<T> : ControllerBase
 
-    {
+//    {
 
-        private IGenericService<T> _genericService;
+//        //private IGenericService<T> _genericService;
 
-        public GenericController(IGenericService<T> genericService)
-        {
-            _genericService = genericService;
-        }
-
-
-
-        // GET: api/values
-        [HttpGet]
-        public List<T> Get()
-        {
-            return _genericService.GetAll();
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public T Get(int id)
-        {
-            return _genericService.GetById(id);
-        }
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody][FromQuery] T value)
-        {
-            _genericService.Create(value);
-        }
+//        //public GenericController(IGenericService<T> genericService)
+//        //{
+//        //    _genericService = genericService;
+//        //}
 
 
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            _genericService.Delete(id);
-        }
-    }
-}
+//        // GET: api/values
+//        [HttpGet]
+//        //public List<T> Get()
+//        //{
+//        //    return _genericService.GetAll();
+//        //}
+
+//        // GET api/values/5
+//        //[HttpGet("{id}")]
+//        //public T Get(int id)
+//        //{
+//        //    return _genericService.GetById(id);
+//        //}
+
+//        // POST api/values
+//        [HttpPost]
+//        //public void Post([FromBody][FromQuery] T value)
+//        //{
+//        //    _genericService.Create(value);
+//        //}
+
+
+
+//        // DELETE api/values/5
+//        //[HttpDelete("{id}")]
+//        //public void Delete(int id)
+//        //{
+//        //    _genericService.Delete(id);
+//        //}
+
+// } }

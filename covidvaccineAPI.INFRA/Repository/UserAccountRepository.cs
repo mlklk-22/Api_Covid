@@ -40,7 +40,7 @@ namespace covidvaccineAPI.INFRA.Repository
         {
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            var result= _dbContext.Connection.Execute("User_Package.DeleteUser", p, commandType: CommandType.StoredProcedure);
+            _dbContext.Connection.Execute("User_Package.DeleteUser", p, commandType: CommandType.StoredProcedure);
         }
 
         public List<Useraccount> firstvaccine()
@@ -59,7 +59,8 @@ namespace covidvaccineAPI.INFRA.Repository
         {
             var p = new DynamicParameters();
             p.Add("id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<Useraccount> result = _dbContext.Connection.Query<Useraccount>("User_Package.GetUserById", commandType: System.Data.CommandType.StoredProcedure);
+            IEnumerable<Useraccount> result = _dbContext.Connection.Query<Useraccount>("User_Package.GetUserById", p, commandType: CommandType.StoredProcedure);
+
             return result.FirstOrDefault();
 
         }
@@ -79,6 +80,7 @@ namespace covidvaccineAPI.INFRA.Repository
         public void UpdateUser(Useraccount useraccount)
         {
             var p = new DynamicParameters();
+            p.Add("ID", useraccount.Userid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Full_Name", useraccount.Fullname, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("User_Name", useraccount.Username, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Phone", useraccount.Phonenumber, dbType: DbType.Int32, direction: ParameterDirection.Input);
