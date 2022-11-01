@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using covidvaccineAPI.CORE.Common;
+using covidvaccineAPI.CORE.Repository;
+using covidvaccineAPI.CORE.Service;
 using covidvaccineAPI.INFRA.Common;
+using covidvaccineAPI.INFRA.Repository;
+using covidvaccineAPI.INFRA.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +33,13 @@ namespace covidvaccine.API
         {
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
+
+            services.AddScoped<IUserAccountRepository, UserAccountRepository>();
+            services.AddScoped<IUserAccountService, UserAccountService>();
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
