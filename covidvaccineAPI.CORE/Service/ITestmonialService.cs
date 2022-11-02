@@ -7,10 +7,10 @@ namespace covidvaccineAPI.CORE.Service
 {
     public interface ITestmonialService
     {
-        void CreateTestmonial(Testmonial reservation);
+        void CreateTestmonial(Testmonial testmonial);
         List<Testmonial> GetAllTestmonial();
         Testmonial GetTestmonialById(int id);
-        void UpdateTestmonial(Testmonial reservation);
+        void UpdateTestmonial(Testmonial testmonial);
         void DeleteTestmonial(int id);
     }
 }
