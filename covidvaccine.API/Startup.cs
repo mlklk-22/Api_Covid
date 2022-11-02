@@ -35,8 +35,12 @@ namespace covidvaccine.API
             services.AddScoped<IDbContext, DbContext>();
 
             services.AddScoped<IUserAccountRepository, UserAccountRepository>();
+             services.AddScoped<IReservationRepository, ReservationRepository>();
+            services.AddScoped<ITestmonialRepository, TestmonialRepository>();
+            
             services.AddScoped<IUserAccountService, UserAccountService>();
-
+             services.AddScoped<IReservationService, ReservationService>();
+            services.AddScoped<ITestmonialService, TestmonialService>();
 
 
 
