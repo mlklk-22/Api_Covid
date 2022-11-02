@@ -16,9 +16,9 @@ namespace covidvaccineAPI.INFRA.Service
             _testmonialRepository = testmonialRepository;
         }
 
-        public void CreateTestmonial(Testmonial reservation)
+        public void CreateTestmonial(Testmonial testmonial)
         {
-            _testmonialRepository.CreateTestmonial(reservation);
+            _testmonialRepository.CreateTestmonial(testmonial);
         }
 
         public void DeleteTestmonial(int id)
@@ -36,9 +36,9 @@ namespace covidvaccineAPI.INFRA.Service
             return _testmonialRepository.GetTestmonialById(id);
         }
 
-        public void UpdateTestmonial(Testmonial reservation)
+        public void UpdateTestmonial(Testmonial testmonial)
         {
-            _testmonialRepository.UpdateTestmonial(reservation);
+            _testmonialRepository.UpdateTestmonial(testmonial);
         }
     }
 }
