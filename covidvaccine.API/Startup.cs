@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -35,9 +35,9 @@ namespace covidvaccine.API
             services.AddScoped<IDbContext, DbContext>();
 
             services.AddScoped<IUserAccountRepository, UserAccountRepository>();
-             services.AddScoped<IReservationRepository, ReservationRepository>();
+             services.AddScoped<IReservationRepository, ReservationRepository>();   
             services.AddScoped<ITestmonialRepository, TestmonialRepository>();
-            
+            services.AddScoped < IVaccinationCenterRepository ,VaccinationCenterRepository>();
             services.AddScoped<IUserAccountService, UserAccountService>();
              services.AddScoped<IReservationService, ReservationService>();
             services.AddScoped<ITestmonialService, TestmonialService>();
