@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace covidvaccine.API.Controllers
 {
-    public class VaccinesController : GenericController<Vaccines>
+    public class VaccinesController : GenericController<Vaccine>
     {
-       public VaccinesController(IGenericService<Vaccines>genericService) : base(genericService)
+       public VaccinesController(IGenericService<Vaccine>genericService) : base(genericService)
         {
 
         }

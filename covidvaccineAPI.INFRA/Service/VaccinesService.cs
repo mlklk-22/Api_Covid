@@ -6,7 +6,7 @@ using covidvaccineAPI.CORE.Service;
 
 namespace covidvaccineAPI.INFRA.Service
 {
-    public class VaccinesService : IGenericService<Vaccines>
+    public class VaccinesService : IGenericService<Vaccine>
     {
         private readonly IVaccinesRepository _vaccinesRepository;
 
@@ -15,12 +15,14 @@ namespace covidvaccineAPI.INFRA.Service
             _vaccinesRepository = vaccinesRepository;
         }
 
-        public void Create(Vaccines item)
+        public void Create(Vaccine item)
         {
 
             _vaccinesRepository.CreateVaccines(item);
 
         }
+
+       
 
         public void Delete(int id)
         {
@@ -28,19 +30,31 @@ namespace covidvaccineAPI.INFRA.Service
 
         }
 
-        public List<Vaccines> GetAll()
+        public List<Vaccine> GetAll()
         {
             return _vaccinesRepository.GetAllVaccine();
         }
 
-        public Vaccines GetById(int id)
+        public Vaccine GetById(int id)
         {
             return _vaccinesRepository.GetVaccinesById(id);
         }
 
-        public void Update(Vaccines item)
+        public void Update(Vaccine item)
         {
             _vaccinesRepository.UpdateVaccines(item);
+        }
+
+       
+
+        List<Vaccine> IGenericService<Vaccine>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        Vaccine IGenericService<Vaccine>.GetById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
