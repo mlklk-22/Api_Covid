@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace covidvaccineAPI.CORE.Data
 {
-    public partial class Vaccine
+    public partial class Vaccines
     {
-        public Vaccine()
+        public Vaccines()
         {
             Reservations = new HashSet<Reservation>();
             VacCenters = new HashSet<VacCenter>();

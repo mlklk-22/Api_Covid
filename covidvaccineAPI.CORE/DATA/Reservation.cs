@@ -23,7 +23,7 @@ namespace covidvaccineAPI.CORE.Data
         public virtual Vaccinationcenter Center { get; set; }
         public virtual Vaccinehistory IdvaccinehistoryNavigation { get; set; }
         public virtual Useraccount User { get; set; }
-        public virtual Vaccine Vaccine { get; set; }
+        public virtual Vaccines Vaccine { get; set; }
         public virtual ICollection<Vaccinehistory> Vaccinehistories { get; set; }
     }
 }

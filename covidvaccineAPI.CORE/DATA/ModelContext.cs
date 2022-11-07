@@ -23,7 +23,7 @@ namespace covidvaccineAPI.CORE.Data
         public virtual DbSet<Useraccount> Useraccounts { get; set; }
         public virtual DbSet<VacCenter> VacCenters { get; set; }
         public virtual DbSet<Vaccinationcenter> Vaccinationcenters { get; set; }
-        public virtual DbSet<Vaccine> Vaccines { get; set; }
+        public virtual DbSet<Vaccines> Vaccines { get; set; }
         public virtual DbSet<Vaccinehistory> Vaccinehistories { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -278,7 +278,7 @@ namespace covidvaccineAPI.CORE.Data
                     .HasConstraintName("FK_VAC_VACCENTER");
             });
 
-            modelBuilder.Entity<Vaccine>(entity =>
+            modelBuilder.Entity<Vaccines>(entity =>
             {
                 entity.ToTable("VACCINES");
 
