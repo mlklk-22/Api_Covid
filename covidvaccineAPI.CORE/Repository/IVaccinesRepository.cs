@@ -6,10 +6,10 @@ namespace covidvaccineAPI.CORE.Repository
 {
     public interface IVaccinesRepository
     {
-        List<Vaccine> GetAllVaccine();
-        Vaccine GetVaccinesById(int id);
-        void CreateVaccines(Vaccine vaccines);
-        void UpdateVaccines(Vaccine vaccines);
+        List<Vaccines> GetAllVaccine();
+        Vaccines GetVaccinesById(int id);
+        void CreateVaccines(Vaccines vaccines);
+        void UpdateVaccines(Vaccines vaccines);
         void DeleteVaccines(int id);
     }
 }
