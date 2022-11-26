@@ -32,7 +32,7 @@ namespace covidvaccineAPI.INFRA.Service
 
         public List<Vaccines> GetAll()
         {
-            return _vaccinesRepository.GetAllVaccine();
+            return _vaccinesRepository.GetAllVaccines();
         }
 
         public Vaccines GetById(int id)

@@ -36,7 +36,9 @@ namespace covidvaccineAPI.INFRA.Repository
             _dbContext.Connection.Execute("Vaccines_Package.DELETEVaccines", p, commandType: CommandType.StoredProcedure);
         }
 
-        public List<Vaccines> GetAllVaccine()
+     
+
+        public List<Vaccines> GetAllVaccines()
         {
             IEnumerable<Vaccines> result = _dbContext.Connection.Query<Vaccines>("Vaccines_Package.GetAllVaccines", commandType: System.Data.CommandType.StoredProcedure);
             return result.ToList();

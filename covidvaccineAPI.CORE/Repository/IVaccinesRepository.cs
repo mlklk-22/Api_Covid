@@ -6,7 +6,7 @@ namespace covidvaccineAPI.CORE.Repository
 {
     public interface IVaccinesRepository
     {
-        List<Vaccines> GetAllVaccine();
+        List<Vaccines> GetAllVaccines();
         Vaccines GetVaccinesById(int id);
         void CreateVaccines(Vaccines vaccines);
         void UpdateVaccines(Vaccines vaccines);

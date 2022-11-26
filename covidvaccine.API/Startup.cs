@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using covidvaccineAPI.CORE.Common;
+using covidvaccineAPI.CORE.Data;
 using covidvaccineAPI.CORE.Repository;
 using covidvaccineAPI.CORE.Service;
 using covidvaccineAPI.INFRA.Common;
@@ -67,19 +68,20 @@ namespace covidvaccine.API
 
             services.AddControllers();
             services.AddScoped<IDbContext, DbContext>();
-
+            services.AddScoped<IVaccinesRepository, VaccinesRepository>();
             services.AddScoped<IUserAccountRepository, UserAccountRepository>();
             services.AddScoped<IReservationRepository, ReservationRepository>();   
             services.AddScoped<ITestmonialRepository, TestmonialRepository>();
             services.AddScoped<IVaccinationCenterRepository ,VaccinationCenterRepository>();
             services.AddScoped<IJWTRepository, JWTRepository>();
-
+            /////////////hello////////
             services.AddScoped<IUserAccountService, UserAccountService>();
             services.AddScoped<IReservationService, ReservationService>();
             services.AddScoped<ITestmonialService, TestmonialService>();
             services.AddScoped<IVaccinationCenterService, VaccinationCenterService>();
             services.AddScoped<IJWTService, JWTService>();
-            
+            services.AddScoped<IGenericService<Vaccines>, VaccinesService>();
+
 
         }
 
