@@ -22,6 +22,7 @@ namespace covidvaccine.API.Controllers
             _testmonialService.CreateTestmonial(testmonial);
         }
         [HttpDelete]
+        [Route("Delete/{id}")]
         public void DeleteTestmonial(int id)
         {
             _testmonialService.DeleteTestmonial(id);

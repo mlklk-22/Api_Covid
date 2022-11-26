@@ -34,6 +34,14 @@ namespace covidvaccine.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(corsOptions =>
+            {
+                corsOptions.AddPolicy("policy",
+                builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
             services.AddAuthentication(opt => {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -61,15 +69,17 @@ namespace covidvaccine.API
             services.AddScoped<IDbContext, DbContext>();
 
             services.AddScoped<IUserAccountRepository, UserAccountRepository>();
-             services.AddScoped<IReservationRepository, ReservationRepository>();   
+            services.AddScoped<IReservationRepository, ReservationRepository>();   
             services.AddScoped<ITestmonialRepository, TestmonialRepository>();
-            services.AddScoped < IVaccinationCenterRepository ,VaccinationCenterRepository>();
-            services.AddScoped<IUserAccountService, UserAccountService>();
-             services.AddScoped<IReservationService, ReservationService>();
-            services.AddScoped<ITestmonialService, TestmonialService>();
-
+            services.AddScoped<IVaccinationCenterRepository ,VaccinationCenterRepository>();
             services.AddScoped<IJWTRepository, JWTRepository>();
+
+            services.AddScoped<IUserAccountService, UserAccountService>();
+            services.AddScoped<IReservationService, ReservationService>();
+            services.AddScoped<ITestmonialService, TestmonialService>();
+            services.AddScoped<IVaccinationCenterService, VaccinationCenterService>();
             services.AddScoped<IJWTService, JWTService>();
+            
 
         }
 
@@ -84,6 +94,8 @@ namespace covidvaccine.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("policy");
 
             app.UseAuthorization();
 

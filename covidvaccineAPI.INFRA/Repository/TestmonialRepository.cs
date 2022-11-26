@@ -14,7 +14,12 @@ namespace covidvaccineAPI.INFRA.Repository
     {
         private readonly IDbContext _dbContext;
 
-        public void CreateTestmonial(Testmonial testmonial)
+        public TestmonialRepository(IDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+           public void CreateTestmonial(Testmonial testmonial)
         {
             var p = new DynamicParameters();
             p.Add("Message", testmonial.Message, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -46,7 +51,7 @@ namespace covidvaccineAPI.INFRA.Repository
         {
             var p = new DynamicParameters();
             p.Add("Id", testmonial.Idtest, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("Message", testmonial.Message, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("feed", testmonial.Message, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("TESTMONIAL_PACKAGE.UpdateTestmonial", p, commandType: CommandType.StoredProcedure);
         }
     }

@@ -21,12 +21,12 @@ namespace covidvaccine.API.Controllers
             _VaccinationCenterService.CreateVaccinationCenter(vaccinationcenter);
         }
         [HttpDelete]
+        [Route("Delete/{id}")]
         public void DeleteVaccinationCenter(int id)
         {
             _VaccinationCenterService.DeleteVaccinationCenter(id);
         }
         [HttpGet]
-         
         public List<Vaccinationcenter> GetAllVaccinationCenter()
         {
             return _VaccinationCenterService.GetAllVaccinationCenter();
