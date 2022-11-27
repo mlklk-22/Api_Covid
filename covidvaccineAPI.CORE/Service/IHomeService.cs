@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace covidvaccineAPI.CORE.Repository
+namespace covidvaccineAPI.CORE.Service
 {
-    public interface IHomeRepository
+    public interface IHomeService
     {
         void CreateHome(Home home);
         List<Home> GetAllHome();
