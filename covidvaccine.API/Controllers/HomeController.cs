@@ -24,6 +24,7 @@ namespace covidvaccine.API.Controllers
             _homeService.CreateHome(home);
         }
         [HttpDelete]
+        [Route("{id}")]
         public void DeleteHome(int id)
         {
             _homeService.DeleteHome(id);
