@@ -8,6 +8,7 @@ namespace covidvaccineAPI.CORE.Service
      public interface IUserAccountService
     {
         List<Useraccount> GetAllUsers();
+        List<Useraccount> getALLDOCTOR();
         Useraccount GetUserById(int id);
         void CreateUser(Useraccount useraccount);
         void UpdateUser(Useraccount useraccount);

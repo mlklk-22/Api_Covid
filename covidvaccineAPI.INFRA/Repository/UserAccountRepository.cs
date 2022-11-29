@@ -49,6 +49,13 @@ namespace covidvaccineAPI.INFRA.Repository
             return result.ToList();
         }
 
+        public List<Useraccount> getALLDOCTOR()
+        {
+
+            IEnumerable<Useraccount> result = _dbContext.Connection.Query<Useraccount>("User_Package.getALLDOCTOR", commandType: System.Data.CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public List<Useraccount> GetAllUsers()
         {
             IEnumerable<Useraccount> result = _dbContext.Connection.Query<Useraccount>("User_Package.GetAllUsers", commandType: System.Data.CommandType.StoredProcedure);

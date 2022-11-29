@@ -30,6 +30,11 @@ namespace covidvaccineAPI.INFRA.Service
             return _userAccountRepository.firstvaccine();
         }
 
+        public List<Useraccount> getALLDOCTOR()
+        {
+            return _userAccountRepository.getALLDOCTOR();
+        }
+
         public List<Useraccount> GetAllUsers()
         {
             return _userAccountRepository.GetAllUsers();

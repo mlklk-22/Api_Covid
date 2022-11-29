@@ -41,6 +41,14 @@ namespace covidvaccine.API.Controllers
         {
             return _userAccountService.GetAllUsers();
         }
+
+        [HttpGet]
+        [Route("doctro")]
+        public List<Useraccount> getALLDOCTOR()
+        {
+            return _userAccountService.getALLDOCTOR();
+        }
+
         [HttpGet]
         [Route("GetById/{id}")]
         public Useraccount GetUserById(int id)
@@ -66,14 +74,14 @@ namespace covidvaccine.API.Controllers
         }
 
 
-        [HttpGet]
+        [HttpPost]
         [Route("uploadImage")]
 
         public Useraccount UploadIMage()
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("Images", fileName);
+            var fullPath = Path.Combine("D:\\Desktop\\Covid-vaccine\\src\\assets\\images", fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
