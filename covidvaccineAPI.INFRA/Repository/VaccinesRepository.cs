@@ -18,25 +18,30 @@ namespace covidvaccineAPI.INFRA.Repository
             _dbContext = dbContext;
 
         }
+        /// <summary>
+        /// ////
+        /// </summary>
+        /// <param name="vaccines"></param>
 
         public void CreateVaccines(Vaccines vaccines)
         {
             var p = new DynamicParameters();
-            p.Add("Vacci_nename", vaccines.Vaccinename, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Vaccine_doses", vaccines.Vaccinedoses, dbType: DbType.Int16, direction: ParameterDirection.Input);
-            p.Add("Vaccine_exp", vaccines.Vaccineexp, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("vaccines_name", vaccines.Vaccinename, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("vaccine_doses", vaccines.Vaccinedoses, dbType: DbType.Int16, direction: ParameterDirection.Input);
+            p.Add("vaccine_sexp", vaccines.Vaccineexp, dbType: DbType.Date, direction: ParameterDirection.Input);
+
             _dbContext.Connection.Execute("Vaccines_Package.CREATEVaccines", p, commandType: CommandType.StoredProcedure);
         }
 
-       
+
         public void DeleteVaccines(int id)
         {
             var p = new DynamicParameters();
-            p.Add("Id", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Vaccines_Package.DELETEVaccines", p, commandType: CommandType.StoredProcedure);
         }
 
-     
+
 
         public List<Vaccines> GetAllVaccines()
         {
@@ -52,17 +57,18 @@ namespace covidvaccineAPI.INFRA.Repository
             return result.FirstOrDefault();
         }
 
-       
+
 
         public void UpdateVaccines(Vaccines vaccines)
         {
             var p = new DynamicParameters();
-            p.Add("Vacci_nename", vaccines.Vaccinename, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Vaccine_doses", vaccines.Vaccinedoses, dbType: DbType.Int16, direction: ParameterDirection.Input);
-            p.Add("Vaccine_exp", vaccines.Vaccineexp, dbType: DbType.Date, direction: ParameterDirection.Input);
+            p.Add("ID", vaccines.Vaccineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("vaccines_name", vaccines.Vaccinename, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("vaccine_doses", vaccines.Vaccinedoses, dbType: DbType.Int16, direction: ParameterDirection.Input);
+            p.Add("vaccine_sexp", vaccines.Vaccineexp, dbType: DbType.Date, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("Vaccines_Package.UPDATEVaccines", p, commandType: CommandType.StoredProcedure);
         }
 
-      
+
     }
 }

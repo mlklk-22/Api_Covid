@@ -44,6 +44,11 @@ namespace covidvaccine.API.Controllers
             _genericService.Create(value);
         }
 
+        [HttpPut]
+        public void put([FromBody][FromQuery] T value)
+        {
+            _genericService.Update(value);
+        }
 
 
         // DELETE api/values/5
