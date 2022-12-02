@@ -18,14 +18,7 @@ namespace covidvaccineAPI.INFRA.Repository
             _dbContext = dbContext;
 
         }
-<<<<<<< HEAD
-        /// <summary>
-        /// ////
-        /// </summary>
-        /// <param name="vaccines"></param>
-=======
-        
->>>>>>> f77b0b3 (nn)
+
 
         public void CreateVaccines(Vaccines vaccines)
         {
@@ -73,8 +66,7 @@ namespace covidvaccineAPI.INFRA.Repository
             _dbContext.Connection.Execute("Vaccines_Package.UPDATEVaccines", p, commandType: CommandType.StoredProcedure);
         }
 
-<<<<<<< HEAD
-=======
+
         public List<Vaccines> SearchVaccine(string name)
         {
             var p = new DynamicParameters();
@@ -84,7 +76,6 @@ namespace covidvaccineAPI.INFRA.Repository
         }
 
 
->>>>>>> f77b0b3 (nn)
 
     }
 }
