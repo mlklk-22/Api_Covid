@@ -22,8 +22,6 @@ namespace covidvaccineAPI.INFRA.Service
 
         }
 
-       
-
         public void Delete(int id)
         {
             _vaccinesRepository.DeleteVaccines(id);
@@ -39,6 +37,13 @@ namespace covidvaccineAPI.INFRA.Service
         {
             return _vaccinesRepository.GetVaccinesById(id);
         }
+
+        public List<Vaccines> Search(string name)
+        {
+            return _vaccinesRepository.SearchVaccine( name);
+        }
+
+   
 
         public void Update(Vaccines item)
         {

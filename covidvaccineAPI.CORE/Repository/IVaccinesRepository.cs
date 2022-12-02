@@ -11,5 +11,7 @@ namespace covidvaccineAPI.CORE.Repository
         void CreateVaccines(Vaccines vaccines);
         void UpdateVaccines(Vaccines vaccines);
         void DeleteVaccines(int id);
+        List<Vaccines> SearchVaccine(string name);
+
     }
 }

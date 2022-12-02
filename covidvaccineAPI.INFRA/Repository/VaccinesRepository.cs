@@ -18,10 +18,14 @@ namespace covidvaccineAPI.INFRA.Repository
             _dbContext = dbContext;
 
         }
+<<<<<<< HEAD
         /// <summary>
         /// ////
         /// </summary>
         /// <param name="vaccines"></param>
+=======
+        
+>>>>>>> f77b0b3 (nn)
 
         public void CreateVaccines(Vaccines vaccines)
         {
@@ -69,6 +73,18 @@ namespace covidvaccineAPI.INFRA.Repository
             _dbContext.Connection.Execute("Vaccines_Package.UPDATEVaccines", p, commandType: CommandType.StoredProcedure);
         }
 
+<<<<<<< HEAD
+=======
+        public List<Vaccines> SearchVaccine(string name)
+        {
+            var p = new DynamicParameters();
+            p.Add("vName", name, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Vaccines> result = _dbContext.Connection.Query<Vaccines>("Vaccines_Package.SearchVaccines", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
+
+>>>>>>> f77b0b3 (nn)
 
     }
 }

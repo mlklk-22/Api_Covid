@@ -58,5 +58,17 @@ namespace covidvaccine.API.Controllers
             _genericService.Delete(id);
         }
 
+
+        [HttpGet]
+        [Route("search/{name}")]
+        public List<T> Search(String name)
+        {
+            return _genericService.Search(name);
+        }
+
+
+   
+
+
     }
 }
