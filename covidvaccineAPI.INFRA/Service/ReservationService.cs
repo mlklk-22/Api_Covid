@@ -36,6 +36,16 @@ namespace covidvaccineAPI.INFRA.Service
             return _reservationRepository.GetReservationById(id);
         }
 
+        public List<Reservation> SearchBetweenFirstDose(DateTime? DateFrom, DateTime? DateTo)
+        {
+            return _reservationRepository.SearchBetweenFirstDose(DateFrom, DateTo);
+        }
+
+        public List<Reservation> SearchBetweenSecondDose(DateTime? DateFrom, DateTime? DateTo)
+        {
+          return _reservationRepository.SearchBetweenSecondDose(DateFrom, DateTo);    
+        }
+
         public void UpdateReservation(Reservation reservation)
         {
             _reservationRepository.UpdateReservation(reservation);

@@ -13,8 +13,8 @@
     <None Remove="Oracle.EntityFrameworkCore" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTO\" />
     <Folder Include="Common\" />
+    <Folder Include="DTO\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MailKit" Version="2.15.0" />
