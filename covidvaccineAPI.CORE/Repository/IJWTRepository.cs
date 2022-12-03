@@ -7,6 +7,6 @@ namespace covidvaccineAPI.CORE.Repository
 {
    public interface IJWTRepository
     {
-        Useraccount login(Useraccount useraccount);
+        Useraccount Auth(Useraccount useraccount);
     }
 }

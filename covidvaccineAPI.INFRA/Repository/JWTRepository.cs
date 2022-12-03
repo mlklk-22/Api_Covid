@@ -12,20 +12,24 @@ namespace covidvaccineAPI.INFRA.Repository
 {
    public class JWTRepository : IJWTRepository
     {
-        private readonly IDbContext _dbContext;
+        private readonly IDbContext dbContext;
 
         public JWTRepository(IDbContext dbContext)
         {
-            _dbContext = dbContext;
+            this.dbContext = dbContext;
         }
 
-        public Useraccount login(Useraccount useraccount)
+        public Useraccount Auth(Useraccount useraccount)
         {
             var p = new DynamicParameters();
-            p.Add("user_name", useraccount.Username, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("pass", useraccount.Password, dbType: DbType.String, direction: ParameterDirection.Input);
-            var result = _dbContext.Connection.Query<Useraccount>("login_package.User_Login", p, commandType: CommandType.StoredProcedure);
+            p.Add("User_NAME", useraccount.Username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("PASS", useraccount.Password, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Useraccount> result = dbContext.Connection.Query<Useraccount>("Login_Package.User_Login", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
+
         }
     }
+
+      
+    
 }

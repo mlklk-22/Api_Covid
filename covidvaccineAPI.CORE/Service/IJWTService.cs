@@ -7,6 +7,6 @@ namespace covidvaccineAPI.CORE.Service
 {
    public interface IJWTService
     {
-        string login(Useraccount useraccount);
+        string Auth(Useraccount useraccount);
     }
 }

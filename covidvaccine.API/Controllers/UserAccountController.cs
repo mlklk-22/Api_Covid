@@ -94,8 +94,28 @@ namespace covidvaccine.API.Controllers
         [Route("getAlluserVaccine")]
         public Task<List<Useraccount>> getAlluserVaccine()
         {
-            return _userAccountService.getAlluserVaccine();
+            
+            return  _userAccountService.getAlluserVaccine();
         }
+
+
+
+
+        [HttpGet]
+        [Route("totalusers")]
+        public int TotalUsers()
+        {
+            return _userAccountService.TotalUsers();
+        }
+
+
+        [HttpGet]
+        [Route("totalDoctors")]
+        public int totalDoctors()
+        {
+            return _userAccountService.totalDoctors();
+        }
+
     }
 
 }

@@ -19,10 +19,10 @@ namespace covidvaccineAPI.INFRA.Service
             this.reposiytory = reposiytory;
         }
 
-        public string login(Useraccount useraccount)
+        public string Auth(Useraccount useraccount)
         {
 
-            var result = reposiytory.login(useraccount);
+            var result = reposiytory.Auth(useraccount);
             if (result == null)
             {
                 return null;
