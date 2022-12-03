@@ -90,5 +90,12 @@ namespace covidvaccine.API.Controllers
             item.Image= fileName;
             return item;
         }
+        [HttpGet]
+        [Route("getAlluserVaccine")]
+        public Task<List<Useraccount>> getAlluserVaccine()
+        {
+            return _userAccountService.getAlluserVaccine();
+        }
     }
+
 }
