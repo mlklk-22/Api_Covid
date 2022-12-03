@@ -4,6 +4,7 @@ using covidvaccineAPI.CORE.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace covidvaccineAPI.INFRA.Service
 {
@@ -38,6 +39,11 @@ namespace covidvaccineAPI.INFRA.Service
         public List<Useraccount> GetAllUsers()
         {
             return _userAccountRepository.GetAllUsers();
+        }
+
+        public Task<List<Useraccount>> getAlluserVaccine()
+        {
+            return _userAccountRepository.getAlluserVaccine();
         }
 
         public Useraccount GetUserById(int id)

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace covidvaccineAPI.CORE.Service
 {
@@ -16,5 +17,7 @@ namespace covidvaccineAPI.CORE.Service
         List<Useraccount> firstvaccine();
         List<Useraccount> Secondvaccine();
         List<Useraccount> NotTokeVaccine();
+        Task<List<Useraccount>> getAlluserVaccine();
+
     }
 }

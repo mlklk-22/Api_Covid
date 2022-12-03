@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace covidvaccineAPI.INFRA.Repository
 {
@@ -62,6 +63,8 @@ namespace covidvaccineAPI.INFRA.Repository
             return result.ToList();
         }
 
+      
+
         public Useraccount GetUserById(int id)
         {
             var p = new DynamicParameters();
@@ -98,6 +101,25 @@ namespace covidvaccineAPI.INFRA.Repository
             p.Add("Age_User", useraccount.Age, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Role_id", useraccount.Roleid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.Execute("User_Package.UpdateUser", p, commandType: CommandType.StoredProcedure);
+
+        }
+
+
+        public async Task<List<Useraccount>> getAlluserVaccine()
+        {
+
+
+            var result = await _dbContext.Connection.QueryAsync<Useraccount, Reservation, Useraccount>("User_Package.getAlluserVaccine()",
+
+                (Useraccount, Reservation) =>
+                {
+                    Useraccount.Reservations.Add(Reservation);
+                    return Useraccount;
+                },
+                splitOn: "Reserveid",
+                param: null,
+                commandType: CommandType.StoredProcedure);
+                return result.ToList();
 
         }
     }
