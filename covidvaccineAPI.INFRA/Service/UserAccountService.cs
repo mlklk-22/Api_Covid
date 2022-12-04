@@ -1,6 +1,11 @@
 ﻿using covidvaccineAPI.CORE.Data;
 using covidvaccineAPI.CORE.Repository;
 using covidvaccineAPI.CORE.Service;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using Microsoft.Extensions.Configuration;
+using MimeKit;
+using MimeKit.Text;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,9 +17,11 @@ namespace covidvaccineAPI.INFRA.Service
     {
 
         private readonly IUserAccountRepository _userAccountRepository;
-        public UserAccountService (IUserAccountRepository userAccountRepository)
+        private readonly IConfiguration _config;
+        public UserAccountService (IUserAccountRepository userAccountRepository, IConfiguration config)
         {
             _userAccountRepository = userAccountRepository;
+            _config = config;
         }
         public void CreateUser(Useraccount useraccount)
         {
@@ -63,6 +70,31 @@ namespace covidvaccineAPI.INFRA.Service
 
         public void UpdateUser(Useraccount useraccount)
         {
+
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("Ahmadyaseen20@outlook.com"));
+            email.To.Add(MailboxAddress.Parse(useraccount.Email));
+            if (useraccount.Numberofvaccines == 1)
+            {
+                email.Subject = "  Ahmad bani yaseen";
+                email.Body = new TextPart(TextFormat.Html) { Text = "one" };
+            }
+            else if (useraccount.Numberofvaccines ==2)
+            {
+                email.Subject = "  Ahmad bani yaseen";
+                email.Body = new TextPart(TextFormat.Html) { Text = "tow" };
+            }
+
+                using var smtp = new SmtpClient();
+            smtp.Connect("smtp.outlook.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("Ahmadyaseen20@outlook.com", "@Ahmad12345");
+            smtp.Send(email);
+            smtp.Disconnect(true);
+
+
+
+
+
             _userAccountRepository.UpdateUser(useraccount);
         }
     }
