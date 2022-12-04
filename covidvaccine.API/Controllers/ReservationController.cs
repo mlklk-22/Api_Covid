@@ -2,6 +2,7 @@
 using covidvaccineAPI.CORE.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 
 namespace covidvaccine.API.Controllers
@@ -43,5 +44,18 @@ namespace covidvaccine.API.Controllers
         {
             _reservationService.UpdateReservation(reservation);
         }
+        [HttpGet]
+        [Route("searchByFirstDose/{DateFrom}/{DateTo}")]
+        public List<Reservation> SearchBetweenFirstDose(DateTime? DateFrom, DateTime? DateTo)
+        {
+            return _reservationService.SearchBetweenFirstDose(DateFrom, DateTo);
+        }
+        [HttpGet]
+        [Route("searchBySecondDose/{DateFrom}/{DateTo}")]
+        public List<Reservation> SearchBetweenSecondDose(DateTime? DateFrom, DateTime? DateTo)
+        {
+            return _reservationService.SearchBetweenSecondDose(DateFrom, DateTo);
+        }
+
     }
 }

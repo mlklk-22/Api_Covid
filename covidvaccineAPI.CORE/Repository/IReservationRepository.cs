@@ -12,6 +12,8 @@ namespace covidvaccineAPI.CORE.Repository
         Reservation GetReservationById(int id);
         void UpdateReservation(Reservation reservation);
         void DeleteReservation(int id);
+        List<Reservation> SearchBetweenFirstDose(DateTime? DateFrom, DateTime? DateTo);
+        List<Reservation> SearchBetweenSecondDose(DateTime? DateFrom, DateTime? DateTo);
 
     }
 }
