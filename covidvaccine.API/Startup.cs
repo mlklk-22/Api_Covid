@@ -77,6 +77,7 @@ namespace covidvaccine.API
             services.AddScoped<IHomeRepository, HomeRepository>();
             services.AddScoped<IAboutRepository, AboutRepository>();
             services.AddScoped<IUserReservationRepository, UserReservationRepository>();
+            services.AddScoped<ICertificateVaccineRepository, CertificateVaccineRepository>();
 
             /////////////hello////////
             services.AddScoped<IUserAccountService, UserAccountService>();
@@ -88,6 +89,8 @@ namespace covidvaccine.API
             services.AddScoped<IHomeService, HomeService>();
             services.AddScoped<IAboutService, AboutService>();
             services.AddScoped<IUserReservationService, UserReservationService>();
+            services.AddScoped<ICertificateVaccineService, CertificateVaccineService>();
+
 
 
         }
