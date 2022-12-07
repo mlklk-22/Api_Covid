@@ -43,12 +43,11 @@ namespace covidvaccine.API
                     builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
                 });
             });
+
             services.AddAuthentication(opt => {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-    .AddJwtBearer(options =>
-    {
+            }).AddJwtBearer(options =>{
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
@@ -108,6 +107,8 @@ namespace covidvaccine.API
             app.UseRouting();
 
             app.UseCors("policy");
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

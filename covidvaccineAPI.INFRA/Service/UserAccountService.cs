@@ -68,6 +68,17 @@ namespace covidvaccineAPI.INFRA.Service
             return _userAccountRepository.Secondvaccine();
         }
 
+
+        
+        public int TotalUsers()
+        {
+            return _userAccountRepository.TotalUsers();
+        }
+        public int totalDoctors()
+        {
+            return _userAccountRepository.totalDoctors();
+        }
+
         public void UpdateUser(Useraccount useraccount)
         {
 

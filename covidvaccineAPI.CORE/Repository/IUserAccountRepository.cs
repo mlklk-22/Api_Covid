@@ -18,6 +18,12 @@ namespace covidvaccineAPI.CORE.Repository
         List<Useraccount> Secondvaccine();
         List<Useraccount> NotTokeVaccine();
         Task<List<Useraccount>> getAlluserVaccine();
+        int TotalUsers();
+        int totalDoctors();
+
+
+
+
 
 
     }
