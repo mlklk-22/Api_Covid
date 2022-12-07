@@ -55,33 +55,33 @@ namespace covidvaccineAPI.INFRA.Service
         public void UpdateReservation(Reservation reservation)
         {
             
-           List<Useraccount> useraccounts= _userAccountRepository.GetAllUsers();
-            string emaill = "";
-            foreach (var item in useraccounts)
-            {
-                if(item.Userid== reservation.Userid)
-                {
-                    emaill = item.Email;
-                    break;
-                }
+           //List<Useraccount> useraccounts= _userAccountRepository.GetAllUsers();
+           // string emaill = "";
+           // foreach (var item in useraccounts)
+           // {
+           //     if(item.Userid== reservation.Userid)
+           //     {
+           //         emaill = item.Email;
+           //         break;
+           //     }
 
-            }
+           // }
             
-           var email = new MimeMessage();
-            email.From.Add(MailboxAddress.Parse("Ahmadyaseen20@outlook.com"));
-            email.To.Add(MailboxAddress.Parse(emaill));
+           //var email = new MimeMessage();
+           // email.From.Add(MailboxAddress.Parse("Ahmadyaseen20@outlook.com"));
+           // email.To.Add(MailboxAddress.Parse(emaill));
            
 
-                email.Subject = "  Ahmad bani yaseen";
-                email.Body = new TextPart(TextFormat.Html) { Text = "one" };
+           //     email.Subject = "  Ahmad bani yaseen";
+           //     email.Body = new TextPart(TextFormat.Html) { Text = "one" };
             
            
 
-            using var smtp = new SmtpClient();
-            smtp.Connect("smtp.outlook.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("Ahmadyaseen20@outlook.com", "@Ahmad12345");
-            smtp.Send(email);
-            smtp.Disconnect(true);
+           // using var smtp = new SmtpClient();
+           // smtp.Connect("smtp.outlook.com", 587, SecureSocketOptions.StartTls);
+           // smtp.Authenticate("Ahmadyaseen20@outlook.com", "@Ahmad12345");
+           // smtp.Send(email);
+           // smtp.Disconnect(true);
 
 
 
