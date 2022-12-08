@@ -10,7 +10,7 @@ namespace covidvaccineAPI.CORE.DTO
         public int NUMBEROFVACCINES { get; set; }
         public string VACCINENAME { get; set; }
         public string CENTERNAME { get; set; }
-        public DateTime FirstDateDose{ get; set; }
-        public DateTime SecondDateDose { get; set; }
+        public DateTime actualdatedose1 { get; set; }
+        public DateTime actualdatedose2 { get; set; }
     }
 }

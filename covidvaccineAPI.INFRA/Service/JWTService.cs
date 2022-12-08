@@ -21,8 +21,9 @@ namespace covidvaccineAPI.INFRA.Service
 
         public string Auth(Useraccount useraccount)
         {
-
             var result = reposiytory.Auth(useraccount);
+           // string n = Convert.ToString(result.Roleid);
+
             if (result == null)
             {
                 return null;
@@ -34,13 +35,13 @@ namespace covidvaccineAPI.INFRA.Service
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
                 var claims = new List<Claim>
                 {
-                     new Claim(ClaimTypes.Name, result.Username),
-                     new Claim(ClaimTypes.Role, result.Roleid.ToString())
+                     new Claim("UserName", result.Username),
+                     new Claim("Role", result.Roleid.ToString())
                 };
 
                 var tokeOptions = new JwtSecurityToken(
                     claims: claims,
-                    expires: DateTime.Now.AddSeconds(60),
+                    expires: DateTime.Now.AddMinutes(60),
                     signingCredentials: signinCredentials
                 );
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);

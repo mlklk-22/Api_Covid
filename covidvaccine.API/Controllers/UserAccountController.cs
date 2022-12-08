@@ -81,7 +81,7 @@ namespace covidvaccine.API.Controllers
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("D:\\Desktop\\Covid-vaccine\\src\\assets\\images", fileName);
+            var fullPath = Path.Combine("C:\\Users\\lastvision\\Desktop\\Covid-vaccine\\src\\assets\\images\\", fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
@@ -97,8 +97,6 @@ namespace covidvaccine.API.Controllers
             
             return  _userAccountService.getAlluserVaccine();
         }
-
-
 
 
         [HttpGet]
