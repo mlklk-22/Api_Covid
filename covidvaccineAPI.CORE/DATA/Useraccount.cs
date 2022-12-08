@@ -25,7 +25,7 @@ namespace covidvaccineAPI.CORE.Data
         public string Password { get; set; }
         public decimal? Age { get; set; }
         public decimal? Roleid { get; set; }
-
+        public string vaccinename { get; set; }
         public virtual Role Role { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
         public virtual ICollection<Testmonial> Testmonials { get; set; }
