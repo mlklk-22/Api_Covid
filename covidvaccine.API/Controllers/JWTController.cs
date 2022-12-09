@@ -18,7 +18,8 @@ namespace covidvaccine.API.Controllers
         {
             this.jwtservice = jwtservice;
         }
-
+        [HttpPost]
+        [Route("auth")]
         public IActionResult Auth(Useraccount useraccount)
         {
             var token = jwtservice.Auth(useraccount);
