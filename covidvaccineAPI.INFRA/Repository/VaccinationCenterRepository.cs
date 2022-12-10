@@ -60,5 +60,11 @@ namespace covidvaccineAPI.INFRA.Repository
             p.Add("CenterAddress", vaccinationcenter.Centeraddres, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.Execute("VACCINATIONCENTER_Package.UpdateVaccinationCenter", p, commandType: CommandType.StoredProcedure);
         }
+
+        public int TotalCenter()
+        {
+            IEnumerable<Useraccount> result = _dbContext.Connection.Query<Useraccount>("VACCINATIONCENTER_Package.GetAllVaccinationCenter", commandType: System.Data.CommandType.StoredProcedure);
+            return result.Count();
+        }
     }
 }

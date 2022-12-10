@@ -136,7 +136,7 @@ namespace covidvaccineAPI.INFRA.Repository
 
         public int TotalUsers()
         {
-            IEnumerable<Useraccount> result = _dbContext.Connection.Query<Useraccount>("User_Package.Toalusers", commandType: System.Data.CommandType.StoredProcedure);
+            IEnumerable<Useraccount> result = _dbContext.Connection.Query<Useraccount>("User_Package.Totalusers", commandType: System.Data.CommandType.StoredProcedure);
             return result.Count();
         }
         public int totalDoctors()

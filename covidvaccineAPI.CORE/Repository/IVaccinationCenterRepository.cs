@@ -12,5 +12,6 @@ namespace covidvaccineAPI.CORE.Repository
         void UpdateVaccinationCenter(Vaccinationcenter vaccinationcenter);
         void DeleteVaccinationCenter(int id);
         Vaccinationcenter GetVaccinationCenterById (int id);
+        int TotalCenter();
     }
 }

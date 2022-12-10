@@ -1,5 +1,6 @@
 ﻿using covidvaccineAPI.CORE.Data;
 using covidvaccineAPI.CORE.Service;
+using covidvaccineAPI.INFRA.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -41,6 +42,14 @@ namespace covidvaccine.API.Controllers
         public void UpdateVaccinationCenter(Vaccinationcenter vaccinationcenter)
         {
             _VaccinationCenterService.UpdateVaccinationCenter(vaccinationcenter);
+        }
+
+
+        [HttpGet]
+        [Route("totalCenters")]
+        public int TotalCenter()
+        {
+            return _VaccinationCenterService.TotalCenter();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using covidvaccineAPI.CORE.Data;
 using covidvaccineAPI.CORE.Repository;
 using covidvaccineAPI.CORE.Service;
+using covidvaccineAPI.INFRA.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -33,6 +34,13 @@ namespace covidvaccineAPI.INFRA.Service
         public Vaccinationcenter GetVaccinationCenterById(int id)
         {
             return _VaccinationCenterRepository.GetVaccinationCenterById(id);
+        }
+
+        public int TotalCenter()
+        {
+
+            return _VaccinationCenterRepository.TotalCenter();
+
         }
 
         public void UpdateVaccinationCenter(Vaccinationcenter vaccinationcenter)
