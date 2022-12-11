@@ -51,5 +51,11 @@ namespace covidvaccine.API.Controllers
         {
             return _VaccinationCenterService.TotalCenter();
         }
+        [HttpGet]
+        [Route("SearchVaccinationCenter/{name}")]
+        public List<Vaccinationcenter> SearchVaccinationCenter(string name)
+        {
+            return _VaccinationCenterService.SearchVaccinationCenter(name);
+        }
     }
 }

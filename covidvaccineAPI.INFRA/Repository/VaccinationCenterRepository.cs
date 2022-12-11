@@ -66,5 +66,13 @@ namespace covidvaccineAPI.INFRA.Repository
             IEnumerable<Useraccount> result = _dbContext.Connection.Query<Useraccount>("VACCINATIONCENTER_Package.GetAllVaccinationCenter", commandType: System.Data.CommandType.StoredProcedure);
             return result.Count();
         }
+
+        public List<Vaccinationcenter> SearchVaccinationCenter(string name)
+        {
+            var p = new DynamicParameters();
+            p.Add("vName", name, dbType: DbType.String, direction: ParameterDirection.Input);
+            IEnumerable<Vaccinationcenter> result = _dbContext.Connection.Query<Vaccinationcenter>("VACCINATIONCENTER_Package.SearchVaccinationCenter", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
     }
 }

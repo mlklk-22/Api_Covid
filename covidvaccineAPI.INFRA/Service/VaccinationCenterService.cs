@@ -36,6 +36,11 @@ namespace covidvaccineAPI.INFRA.Service
             return _VaccinationCenterRepository.GetVaccinationCenterById(id);
         }
 
+        public List<Vaccinationcenter> SearchVaccinationCenter(string name)
+        {
+           return _VaccinationCenterRepository.SearchVaccinationCenter(name);
+        }
+
         public int TotalCenter()
         {
 

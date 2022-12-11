@@ -12,6 +12,7 @@ namespace covidvaccineAPI.CORE.Service
         void UpdateVaccinationCenter(Vaccinationcenter vaccinationcenter);
         void DeleteVaccinationCenter(int id);
         Vaccinationcenter GetVaccinationCenterById(int id);
+        List<Vaccinationcenter> SearchVaccinationCenter(string name);
         int TotalCenter();
     }
 }
