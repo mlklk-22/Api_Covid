@@ -36,7 +36,8 @@ namespace covidvaccineAPI.INFRA.Service
                 var claims = new List<Claim>
                 {
                      new Claim("UserName", result.Username),
-                     new Claim("Role", result.Roleid.ToString())
+                     new Claim("Role", result.Roleid.ToString()),
+                     new Claim("ID", result.Userid.ToString())
                 };
 
                 var tokeOptions = new JwtSecurityToken(
