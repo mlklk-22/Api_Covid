@@ -35,10 +35,15 @@ namespace covidvaccineAPI.INFRA.Service
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
                 var claims = new List<Claim>
                 {
+<<<<<<< Updated upstream
                      new Claim("UserName", result.Username),
                      new Claim("Role", result.Roleid.ToString()),
                      new Claim("ID",result.Userid.ToString()),
                      
+=======
+                     new Claim("Name", result.Username),
+                     new Claim("Role", result.Roleid.ToString())
+>>>>>>> Stashed changes
                 };
 
                 var tokeOptions = new JwtSecurityToken(
