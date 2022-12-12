@@ -17,7 +17,7 @@ namespace covidvaccineAPI.CORE.Data
         {
         }
 
-        public virtual DbSet<About> Abouts { get; set; }
+        public virtual DbSet<Footer> Footers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,155 +33,99 @@ namespace covidvaccineAPI.CORE.Data
             modelBuilder.HasDefaultSchema("TAH14_USER60")
                 .HasAnnotation("Relational:Collation", "USING_NLS_COMP");
 
-            modelBuilder.Entity<About>(entity =>
+            modelBuilder.Entity<Footer>(entity =>
             {
-                entity.ToTable("ABOUT");
+                entity.ToTable("FOOTER");
 
-                entity.Property(e => e.Aboutid)
+                entity.Property(e => e.Footerid)
                     .HasColumnType("NUMBER")
                     .ValueGeneratedOnAdd()
-                    .HasColumnName("ABOUTID");
+                    .HasColumnName("FOOTERID");
 
-                entity.Property(e => e.Descprotect)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Desctitle2)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("DESCPROTECT");
+                    .HasColumnName("DESCTITLE2");
 
-                entity.Property(e => e.Descriptiontitle1)
-                    .IsRequired()
-                    .HasMaxLength(255)
+                entity.Property(e => e.Link1title1)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("DESCRIPTIONTITLE1");
+                    .HasColumnName("LINK1TITLE1");
 
-                entity.Property(e => e.Imagetitle1)
-                    .HasMaxLength(255)
+                entity.Property(e => e.Link1title3)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("IMAGETITLE1");
+                    .HasColumnName("LINK1TITLE3");
 
-                entity.Property(e => e.Littleprotecttitle)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Link1title4)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("LITTLEPROTECTTITLE");
+                    .HasColumnName("LINK1TITLE4");
 
-                entity.Property(e => e.Littletitle1)
-                    .IsRequired()
-                    .HasMaxLength(255)
+                entity.Property(e => e.Link2title1)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("LITTLETITLE1");
+                    .HasColumnName("LINK2TITLE1");
 
-                entity.Property(e => e.Point1desc1)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Link2title3)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("POINT1DESC1");
+                    .HasColumnName("LINK2TITLE3");
 
-                entity.Property(e => e.Point1desc2)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Link2title4)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("POINT1DESC2");
+                    .HasColumnName("LINK2TITLE4");
 
-                entity.Property(e => e.Point1desc3)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Link3title1)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("POINT1DESC3");
+                    .HasColumnName("LINK3TITLE1");
 
-                entity.Property(e => e.Point2desc1)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Link3title3)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("POINT2DESC1");
+                    .HasColumnName("LINK3TITLE3");
 
-                entity.Property(e => e.Point2desc2)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Link3title4)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("POINT2DESC2");
+                    .HasColumnName("LINK3TITLE4");
 
-                entity.Property(e => e.Point2desc3)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Link4title1)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("POINT2DESC3");
+                    .HasColumnName("LINK4TITLE1");
 
-                entity.Property(e => e.Protectimage)
-                    .HasMaxLength(150)
+                entity.Property(e => e.Link4title3)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("PROTECTIMAGE");
+                    .HasColumnName("LINK4TITLE3");
 
-                entity.Property(e => e.Protectpoint1)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Link4title4)
+                    .HasMaxLength(100)
                     .IsUnicode(false)
-                    .HasColumnName("PROTECTPOINT1");
-
-                entity.Property(e => e.Protectpoint2)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .HasColumnName("PROTECTPOINT2");
-
-                entity.Property(e => e.Protecttitle)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .HasColumnName("PROTECTTITLE");
-
-                entity.Property(e => e.Textbuttontitle1)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .HasColumnName("TEXTBUTTONTITLE1");
+                    .HasColumnName("LINK4TITLE4");
 
                 entity.Property(e => e.Title1)
-                    .IsRequired()
-                    .HasMaxLength(255)
+                    .HasMaxLength(155)
                     .IsUnicode(false)
                     .HasColumnName("TITLE1");
 
-                entity.Property(e => e.Whatdesc1)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Title2)
+                    .HasMaxLength(155)
                     .IsUnicode(false)
-                    .HasColumnName("WHATDESC1");
+                    .HasColumnName("TITLE2");
 
-                entity.Property(e => e.Whatdesc2)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Title3)
+                    .HasMaxLength(155)
                     .IsUnicode(false)
-                    .HasColumnName("WHATDESC2");
+                    .HasColumnName("TITLE3");
 
-                entity.Property(e => e.Whatdesc3)
-                    .IsRequired()
-                    .HasMaxLength(150)
+                entity.Property(e => e.Title4)
+                    .HasMaxLength(155)
                     .IsUnicode(false)
-                    .HasColumnName("WHATDESC3");
-
-                entity.Property(e => e.Whatdescription)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .HasColumnName("WHATDESCRIPTION");
-
-                entity.Property(e => e.Whatimage)
-                    .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .HasColumnName("WHATIMAGE");
-
-                entity.Property(e => e.Whattextbutton)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .HasColumnName("WHATTEXTBUTTON");
-
-                entity.Property(e => e.Whattitle)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false)
-                    .HasColumnName("WHATTITLE");
+                    .HasColumnName("TITLE4");
             });
 
             OnModelCreatingPartial(modelBuilder);
