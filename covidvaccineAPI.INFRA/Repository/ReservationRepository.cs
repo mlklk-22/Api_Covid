@@ -69,7 +69,7 @@ namespace covidvaccineAPI.INFRA.Repository
             var p = new DynamicParameters();
             p.Add("DateFrom", DateFrom, dbType: DbType.Date, direction: ParameterDirection.Input);
             p.Add("DateTo", DateTo, dbType: DbType.Date, direction: ParameterDirection.Input);
-            var result = _dbContext.Connection.Query<Reservation>("RESERVATION_PACKAGE.SearchBetweenFirstDose", p, commandType: CommandType.StoredProcedure);
+            IEnumerable<Reservation> result = _dbContext.Connection.Query<Reservation>("RESERVATION_PACKAGE.SearchBetweenFirstDose", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 
@@ -78,7 +78,7 @@ namespace covidvaccineAPI.INFRA.Repository
             var p = new DynamicParameters();
             p.Add("DateFrom", DateFrom, dbType: DbType.Date, direction: ParameterDirection.Input);
             p.Add("DateTo", DateTo, dbType: DbType.Date, direction: ParameterDirection.Input);
-            var result = _dbContext.Connection.Query<Reservation>("RESERVATION_PACKAGE.SearchBetweenSecondDose", p, commandType: CommandType.StoredProcedure);
+            IEnumerable<Reservation> result = _dbContext.Connection.Query<Reservation>("RESERVATION_PACKAGE.SearchBetweenSecondDose", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

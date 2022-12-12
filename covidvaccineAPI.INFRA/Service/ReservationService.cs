@@ -83,10 +83,6 @@ namespace covidvaccineAPI.INFRA.Service
            // smtp.Send(email);
            // smtp.Disconnect(true);
 
-
-
-
-
             _reservationRepository.UpdateReservation(reservation);
         }
     }
