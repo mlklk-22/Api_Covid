@@ -37,14 +37,14 @@ namespace covidvaccineAPI.INFRA.Service
                 {
                      new Claim("UserName", result.Username),
                      new Claim("Role", result.Roleid.ToString()),
-                     new Claim("ID",result.Userid.ToString()),
+                     new Claim("ID", result.Userid.ToString()),
                      new Claim("FullName", result.Fullname),
 
                 };
 
                 var tokeOptions = new JwtSecurityToken(
                     claims: claims,
-                    expires: DateTime.Now.AddMinutes(1),
+                    expires: DateTime.Now.AddMinutes(60),
                     signingCredentials: signinCredentials
                 );
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
