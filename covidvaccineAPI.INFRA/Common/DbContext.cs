@@ -25,6 +25,7 @@ namespace covidvaccineAPI.INFRA.Common
                 if (_connection == null)
                 {
                     _connection = new OracleConnection(_configuration["ConnectionStrings:DBConnectionString"]);
+
                     _connection.Open();
                 }
                 else if (_connection.State != ConnectionState.Open)
