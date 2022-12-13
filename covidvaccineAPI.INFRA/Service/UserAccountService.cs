@@ -81,28 +81,29 @@ namespace covidvaccineAPI.INFRA.Service
 
         public void UpdateUser(Useraccount useraccount)
         {
+            if (useraccount.Numberofvaccines == 1 || useraccount.Numberofvaccines == 2)
+            {
+                var email = new MimeMessage();
+                email.From.Add(MailboxAddress.Parse("Ahmadyaseen20@outlook.com"));
+                email.To.Add(MailboxAddress.Parse(useraccount.Email));
+                if (useraccount.Numberofvaccines == 1)
+                {
+                    email.Subject = "  Ahmad bani yaseen";
+                    email.Body = new TextPart(TextFormat.Html) { Text = "Ms / Mrs" + " " + useraccount.Fullname + " " + "your have received the first dose " + " " + useraccount.vaccinename +" " + "COVID 19" +" "+ "Ministry Of Health ." };
+                }
+                else if (useraccount.Numberofvaccines == 2)
+                {
+                    email.Subject = "  Ahmad bani yaseen";
+                    email.Body = new TextPart(TextFormat.Html) { Text = "Ms / Mrs" + " " + useraccount.Fullname + " " + "your have received the Second dose" + " " + useraccount.vaccinename + " " + "COVID 19" + " " + "Ministry Of Health ." };
+                }
 
-            //var email = new MimeMessage();
-            //email.From.Add(MailboxAddress.Parse("Ahmadyaseen20@outlook.com"));
-            //email.To.Add(MailboxAddress.Parse(useraccount.Email));
-            //if (useraccount.Numberofvaccines == 1)
-            //{
-            //    email.Subject = "  Ahmad bani yaseen";
-            //    email.Body = new TextPart(TextFormat.Html) { Text = "one" };
-            //}
-            //else if (useraccount.Numberofvaccines ==2)
-            //{
-            //    email.Subject = "  Ahmad bani yaseen";
-            //    email.Body = new TextPart(TextFormat.Html) { Text = "tow" };
-            //}
+                using var smtp = new SmtpClient();
+                smtp.Connect("smtp.outlook.com", 587, SecureSocketOptions.StartTls);
+                smtp.Authenticate("Ahmadyaseen20@outlook.com", "@Ahmad12345");
+                smtp.Send(email);
+                smtp.Disconnect(true);
 
-            //    using var smtp = new SmtpClient();
-            //smtp.Connect("smtp.outlook.com", 587, SecureSocketOptions.StartTls);
-            //smtp.Authenticate("Ahmadyaseen20@outlook.com", "@Ahmad12345");
-            //smtp.Send(email);
-            //smtp.Disconnect(true);
-
-
+            }
 
 
 
