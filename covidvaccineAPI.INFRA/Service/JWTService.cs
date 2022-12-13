@@ -38,7 +38,6 @@ namespace covidvaccineAPI.INFRA.Service
                      new Claim("UserName", result.Username),
                      new Claim("Role", result.Roleid.ToString()),
                      new Claim("ID", result.Userid.ToString()),
-                     new Claim("FullName", result.Fullname),
 
                 };
 
