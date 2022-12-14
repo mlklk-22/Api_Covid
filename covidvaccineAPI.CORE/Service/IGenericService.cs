@@ -5,6 +5,7 @@ namespace covidvaccineAPI.CORE.Service
 {
     public interface IGenericService<T>
     {
+        //
         List<T> GetAll();
         T GetById(int id);
         void Create(T item);

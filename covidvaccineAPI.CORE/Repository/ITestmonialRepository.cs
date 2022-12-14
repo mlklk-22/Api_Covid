@@ -7,6 +7,7 @@ namespace covidvaccineAPI.CORE.Repository
 {
     public interface ITestmonialRepository
     {
+        //
         void CreateTestmonial(Testmonial testmonial);
         List<Testmonial> GetAllTestmonial();
         Testmonial GetTestmonialById(int id);
