@@ -10,7 +10,7 @@ namespace covidvaccineAPI.CORE.Data
         public VacCenter()
         {
             Vaccinationcenters = new HashSet<Vaccinationcenter>();
-            Vaccines = new HashSet<Vaccines>();
+            Vaccines = new HashSet<Vaccine>();
         }
 
         public decimal VacCenterid { get; set; }
@@ -18,8 +18,8 @@ namespace covidvaccineAPI.CORE.Data
         public decimal? Vaccineid { get; set; }
 
         public virtual Vaccinationcenter Center { get; set; }
-        public virtual Vaccines Vaccine { get; set; }
+        public virtual Vaccine Vaccine { get; set; }
         public virtual ICollection<Vaccinationcenter> Vaccinationcenters { get; set; }
-        public virtual ICollection<Vaccines> Vaccines { get; set; }
+        public virtual ICollection<Vaccine> Vaccines { get; set; }
     }
 }

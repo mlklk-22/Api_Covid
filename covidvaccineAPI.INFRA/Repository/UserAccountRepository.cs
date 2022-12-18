@@ -40,10 +40,10 @@ namespace covidvaccineAPI.INFRA.Repository
             p.Add("Number_of_Vaccines", useraccount.Numberofvaccines, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("ImagePath", useraccount.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Email_User", useraccount.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Password_User", CreatePasswordHash(useraccount.Password), dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Password_User", useraccount.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Age_User", useraccount.Age, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Role_id", useraccount.Roleid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("namevaccine", useraccount.vaccinename, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("namevaccine", useraccount.Vaccinename, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("User_Package.CreateUser", p, commandType: CommandType.StoredProcedure);
 
@@ -109,10 +109,10 @@ namespace covidvaccineAPI.INFRA.Repository
             p.Add("Number_of_Vaccines", useraccount.Numberofvaccines, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("ImagePath", useraccount.Image, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Email_User", useraccount.Email, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("Password_User", CreatePasswordHash(useraccount.Password), dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Password_User",useraccount.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("Age_User", useraccount.Age, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Role_id", useraccount.Roleid, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("namevaccine", useraccount.vaccinename, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("namevaccine", useraccount.Vaccinename, dbType: DbType.String, direction: ParameterDirection.Input);
 
             var result = _dbContext.Connection.Execute("User_Package.UpdateUser", p, commandType: CommandType.StoredProcedure);
 

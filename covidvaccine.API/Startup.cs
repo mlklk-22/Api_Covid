@@ -86,7 +86,7 @@ namespace covidvaccine.API
             services.AddScoped<ITestmonialService, TestmonialService>();
             services.AddScoped<IVaccinationCenterService, VaccinationCenterService>();
             services.AddScoped<IJWTService, JWTService>();
-            services.AddScoped<IGenericService<Vaccines>, VaccinesService>();
+            services.AddScoped<IGenericService<Vaccine>, VaccinesService>();
             services.AddScoped<IHomeService, HomeService>();
             services.AddScoped<IAboutService, AboutService>();
             services.AddScoped<IUserReservationService, UserReservationService>();

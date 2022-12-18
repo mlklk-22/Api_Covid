@@ -24,7 +24,7 @@ namespace covidvaccineAPI.INFRA.Repository
             var p = new DynamicParameters();
             p.Add("ActualDateDose1", reservation.Actualdatedose1, dbType: DbType.Date, direction: ParameterDirection.Input);
             p.Add("ActualDateDose2", reservation.Actualdatedose2, dbType: DbType.Date, direction: ParameterDirection.Input);
-            p.Add("massageUser", reservation.massage, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("massageUser", reservation.Massage, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("StatusUser", reservation.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("useridd", reservation.Userid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("RESERVATION_PACKAGE.CreateReservation", p, commandType: CommandType.StoredProcedure);
@@ -59,7 +59,7 @@ namespace covidvaccineAPI.INFRA.Repository
             p.Add("Id", reservation.Reserveid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("Actualdatedose1", reservation.Actualdatedose1, dbType: DbType.Date, direction: ParameterDirection.Input);
             p.Add("Actualdatedose2", reservation.Actualdatedose2, dbType: DbType.Date, direction: ParameterDirection.Input);
-            p.Add("massageUser", reservation.massage, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("massageUser", reservation.Massage, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("StatusUser", reservation.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("RESERVATION_PACKAGE.UpdateReservation", p, commandType: CommandType.StoredProcedure);
         }

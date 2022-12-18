@@ -89,12 +89,12 @@ namespace covidvaccineAPI.INFRA.Service
                 if (useraccount.Numberofvaccines == 1)
                 {
                     email.Subject = "  Ahmad bani yaseen";
-                    email.Body = new TextPart(TextFormat.Html) { Text = "Ms / Mrs" + " " + useraccount.Fullname + " " + "your have received the first dose " + " " + useraccount.vaccinename +" " + "COVID 19" +" "+ "Ministry Of Health ." };
+                    email.Body = new TextPart(TextFormat.Html) { Text = "Ms / Mrs" + " " + useraccount.Fullname + " " + "your have received the first dose " + " " + useraccount.Vaccinename +" " + "COVID 19" +" "+ "Ministry Of Health ." };
                 }
                 else if (useraccount.Numberofvaccines == 2)
                 {
                     email.Subject = "  Ahmad bani yaseen";
-                    email.Body = new TextPart(TextFormat.Html) { Text = "Ms / Mrs" + " " + useraccount.Fullname + " " + "your have received the Second dose" + " " + useraccount.vaccinename + " " + "COVID 19" + " " + "Ministry Of Health ." };
+                    email.Body = new TextPart(TextFormat.Html) { Text = "Ms / Mrs" + " " + useraccount.Fullname + " " + "your have received the Second dose" + " " + useraccount.Vaccinename + " " + "COVID 19" + " " + "Ministry Of Health ." };
                 }
 
                 using var smtp = new SmtpClient();

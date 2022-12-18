@@ -1,4 +1,5 @@
 ﻿using covidvaccineAPI.CORE.Data;
+using covidvaccineAPI.CORE.DTO;
 using covidvaccineAPI.CORE.Repository;
 using covidvaccineAPI.CORE.Service;
 using System;
@@ -34,6 +35,11 @@ namespace covidvaccineAPI.INFRA.Service
         public Testmonial GetTestmonialById(int id)
         {
             return _testmonialRepository.GetTestmonialById(id);
+        }
+
+        public List<ShowAllTestmonial> ShowAllTestmonial()
+        {
+            return _testmonialRepository.ShowAllTestmonial();
         }
 
         public void UpdateTestmonial(Testmonial testmonial)

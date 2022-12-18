@@ -20,7 +20,7 @@ namespace covidvaccineAPI.INFRA.Repository
         }
 
 
-        public void CreateVaccines(Vaccines vaccines)
+        public void CreateVaccines(Vaccine vaccines)
         {
             var p = new DynamicParameters();
             p.Add("vaccines_name", vaccines.Vaccinename, dbType: DbType.String, direction: ParameterDirection.Input);
@@ -40,23 +40,23 @@ namespace covidvaccineAPI.INFRA.Repository
 
 
 
-        public List<Vaccines> GetAllVaccines()
+        public List<Vaccine> GetAllVaccines()
         {
-            IEnumerable<Vaccines> result = _dbContext.Connection.Query<Vaccines>("Vaccines_Package.GetAllVaccines", commandType: System.Data.CommandType.StoredProcedure);
+            IEnumerable<Vaccine> result = _dbContext.Connection.Query<Vaccine>("Vaccines_Package.GetAllVaccines", commandType: System.Data.CommandType.StoredProcedure);
             return result.ToList();
         }
 
-        public Vaccines GetVaccinesById(int id)
+        public Vaccine GetVaccinesById(int id)
         {
             var p = new DynamicParameters();
             p.Add("ID", id, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            IEnumerable<Vaccines> result = _dbContext.Connection.Query<Vaccines>("Vaccines_Package.GetVaccinesById", p, commandType: CommandType.StoredProcedure);
+            IEnumerable<Vaccine> result = _dbContext.Connection.Query<Vaccine>("Vaccines_Package.GetVaccinesById", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
         }
 
 
 
-        public void UpdateVaccines(Vaccines vaccines)
+        public void UpdateVaccines(Vaccine vaccines)
         {
             var p = new DynamicParameters();
             p.Add("ID", vaccines.Vaccineid, dbType: DbType.Int32, direction: ParameterDirection.Input);
@@ -67,11 +67,11 @@ namespace covidvaccineAPI.INFRA.Repository
         }
 
 
-        public List<Vaccines> SearchVaccine(string name)
+        public List<Vaccine> SearchVaccine(string name)
         {
             var p = new DynamicParameters();
             p.Add("vName", name, dbType: DbType.String, direction: ParameterDirection.Input);
-            IEnumerable<Vaccines> result = _dbContext.Connection.Query<Vaccines>("Vaccines_Package.SearchVaccines", p, commandType: CommandType.StoredProcedure);
+            IEnumerable<Vaccine> result = _dbContext.Connection.Query<Vaccine>("Vaccines_Package.SearchVaccines", p, commandType: CommandType.StoredProcedure);
             return result.ToList();
         }
 

@@ -1,5 +1,6 @@
 ﻿using covidvaccineAPI.CORE.Common;
 using covidvaccineAPI.CORE.Data;
+using covidvaccineAPI.CORE.DTO;
 using covidvaccineAPI.CORE.Repository;
 using Dapper;
 using System;
@@ -23,6 +24,9 @@ namespace covidvaccineAPI.INFRA.Repository
         {
             var p = new DynamicParameters();
             p.Add("Message", testmonial.Message, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("userid", testmonial.Userid, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("image", testmonial.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("status", testmonial.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("TESTMONIAL_PACKAGE.CreateTestmonial", p, commandType: CommandType.StoredProcedure);
         }
 
@@ -47,11 +51,20 @@ namespace covidvaccineAPI.INFRA.Repository
             return result.FirstOrDefault();
         }
 
+        public List<ShowAllTestmonial> ShowAllTestmonial()
+        {
+            IEnumerable<ShowAllTestmonial> result = _dbContext.Connection.Query<ShowAllTestmonial>("TESTMONIAL_PACKAGE.AllTestmonialToShow", commandType: CommandType.StoredProcedure);
+            return result.ToList();
+        }
+
         public void UpdateTestmonial(Testmonial testmonial)
         {
             var p = new DynamicParameters();
             p.Add("Id", testmonial.Idtest, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("feed", testmonial.Message, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("useid", testmonial.Userid, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("imageTest", testmonial.Image, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("testStatus", testmonial.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("TESTMONIAL_PACKAGE.UpdateTestmonial", p, commandType: CommandType.StoredProcedure);
         }
     }

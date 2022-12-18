@@ -33,7 +33,7 @@ namespace covidvaccineAPI.INFRA.Repository
         {
             var p = new DynamicParameters();
             p.Add("user_name", useraccount.Username, dbType: DbType.String, direction: ParameterDirection.Input);
-            p.Add("pass", CreatePasswordHash(useraccount.Password), dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("pass", useraccount.Password, dbType: DbType.String, direction: ParameterDirection.Input);
             var result = dbContext.Connection.Query<Useraccount>("login_package.User_Login", p, commandType: CommandType.StoredProcedure);
             return result.FirstOrDefault();
 

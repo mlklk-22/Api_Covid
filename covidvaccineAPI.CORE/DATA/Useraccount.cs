@@ -14,7 +14,6 @@ namespace covidvaccineAPI.CORE.Data
             Vaccinehistories = new HashSet<Vaccinehistory>();
         }
 
-        public static object USERNAME { get; set; }
         public decimal Userid { get; set; }
         public string Fullname { get; set; }
         public string Username { get; set; }
@@ -25,7 +24,8 @@ namespace covidvaccineAPI.CORE.Data
         public string Password { get; set; }
         public decimal? Age { get; set; }
         public decimal? Roleid { get; set; }
-        public string vaccinename { get; set; }
+        public string Vaccinename { get; set; }
+
         public virtual Role Role { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
         public virtual ICollection<Testmonial> Testmonials { get; set; }
