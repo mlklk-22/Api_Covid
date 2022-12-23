@@ -45,7 +45,7 @@ namespace covidvaccine.API.Controllers
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("C:\\Users\\lastvision\\Desktop\\Covid-vaccine\\src\\assets\\images\\", fileName);
+            var fullPath = Path.Combine("C:\\Users\\lastvision\\Desktop\\Angular_Covid\\src\\assets\\images\\", fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
@@ -60,7 +60,7 @@ namespace covidvaccine.API.Controllers
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("C:\\Users\\lastvision\\Desktop\\Covid-vaccine\\src\\assets\\images\\", fileName);
+            var fullPath = Path.Combine("C:\\Users\\lastvision\\Desktop\\Angular_Covid\\src\\assets\\images\\", fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
@@ -76,7 +76,7 @@ namespace covidvaccine.API.Controllers
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("C:\\Users\\lastvision\\Desktop\\Covid-vaccine\\src\\assets\\images\\", fileName);
+            var fullPath = Path.Combine("C:\\Users\\lastvision\\Desktop\\Angular_Covid\\src\\assets\\images\\", fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
@@ -92,10 +92,10 @@ namespace covidvaccine.API.Controllers
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("C:\\Users\\lastvision\\Desktop\\Covid-vaccine\\src\\assets\\images\\", fileName);
+            var fullPath = Path.Combine("C:\\Users\\lastvision\\Desktop\\Angular_Covid\\src\\assets\\images\\", fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
-                file.CopyTo(stream);
+                file.CopyTo(stream);        
             }
             Home home = new Home();
             home.Newsimage2 = fileName;
@@ -108,7 +108,7 @@ namespace covidvaccine.API.Controllers
         {
             var file = Request.Form.Files[0];
             var fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
-            var fullPath = Path.Combine("C:\\Users\\lastvision\\Desktop\\Covid-vaccine\\src\\assets\\images\\", fileName);
+            var fullPath = Path.Combine("C:\\Users\\lastvision\\Desktop\\Angular_Covid\\src\\assets\\images\\", fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);

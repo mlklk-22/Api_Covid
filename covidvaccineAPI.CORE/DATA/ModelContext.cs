@@ -646,11 +646,6 @@ namespace covidvaccineAPI.CORE.Data
                     .ValueGeneratedOnAdd()
                     .HasColumnName("CENTERID");
 
-                entity.Property(e => e.Centeraddres)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("CENTERADDRES");
-
                 entity.Property(e => e.Centername)
                     .HasMaxLength(50)
                     .IsUnicode(false)
@@ -663,6 +658,16 @@ namespace covidvaccineAPI.CORE.Data
                 entity.Property(e => e.Centervaccinecapacity)
                     .HasColumnType("NUMBER")
                     .HasColumnName("CENTERVACCINECAPACITY");
+
+                entity.Property(e => e.Lat)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("LAT");
+
+                entity.Property(e => e.Lng)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("LNG");
 
                 entity.Property(e => e.VacCenterid)
                     .HasColumnType("NUMBER")

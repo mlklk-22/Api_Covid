@@ -17,8 +17,9 @@ namespace covidvaccineAPI.CORE.Data
         public string Centername { get; set; }
         public decimal? Centerusercapacity { get; set; }
         public decimal? Centervaccinecapacity { get; set; }
-        public string Centeraddres { get; set; }
         public decimal? VacCenterid { get; set; }
+        public string Lat { get; set; }
+        public string Lng { get; set; }
 
         public virtual VacCenter VacCenter { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }

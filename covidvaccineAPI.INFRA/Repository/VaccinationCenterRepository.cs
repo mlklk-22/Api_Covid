@@ -24,7 +24,9 @@ namespace covidvaccineAPI.INFRA.Repository
             p.Add("CENTERNAME" , vaccinationcenter.Centername , dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("UserCapacity" , vaccinationcenter.Centerusercapacity , dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("VaccinationCapacity" ,vaccinationcenter.Centervaccinecapacity , dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("CenterAddress", vaccinationcenter.Centeraddres, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("lat", vaccinationcenter.Lat, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("lng", vaccinationcenter.Lng, dbType: DbType.String, direction: ParameterDirection.Input);
+
             var result = _dbContext.Connection.Execute("VACCINATIONCENTER_Package.CreateVaccinationCenter", p, commandType: CommandType.StoredProcedure);
 
         }
@@ -57,7 +59,9 @@ namespace covidvaccineAPI.INFRA.Repository
             p.Add("CENTERNAME", vaccinationcenter.Centername, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("UserCapacity", vaccinationcenter.Centerusercapacity, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("VaccinationCapacity", vaccinationcenter.Centervaccinecapacity, dbType: DbType.Int32, direction: ParameterDirection.Input);
-            p.Add("CenterAddress", vaccinationcenter.Centeraddres, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("latit", vaccinationcenter.Lat, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("lngit", vaccinationcenter.Lng, dbType: DbType.String, direction: ParameterDirection.Input);
+
             var result = _dbContext.Connection.Execute("VACCINATIONCENTER_Package.UpdateVaccinationCenter", p, commandType: CommandType.StoredProcedure);
         }
 

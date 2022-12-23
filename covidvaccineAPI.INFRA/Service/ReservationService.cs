@@ -69,25 +69,25 @@ namespace covidvaccineAPI.INFRA.Service
            
            
                 var email = new MimeMessage();
-                email.From.Add(MailboxAddress.Parse("Ahmadyaseen20@outlook.com"));
+                email.From.Add(MailboxAddress.Parse("mlkmsbh84@outlook.com"));
                 email.To.Add(MailboxAddress.Parse(emaill));
-                if (reservation.Status.Equals( "accept"))
+                if (reservation.Status.Equals("accept"))
                 {
 
-                    email.Subject = "  Ahmad bani yaseen";
+                    email.Subject = "Accept The Vaccine Dose";
                     email.Body = new TextPart(TextFormat.Html) { Text = "Your Reservation as Accept" };
                 }
                 else if (reservation.Status.Equals("reject"))
                 {
 
-                    email.Subject = "  Ahmad bani yaseen";
+                    email.Subject = "Reject The Vaccine Dose";
                     email.Body = new TextPart(TextFormat.Html) { Text = "Your Reservation as Reject" };
                 }
 
 
                 using var smtp = new SmtpClient();
                 smtp.Connect("smtp.outlook.com", 587, SecureSocketOptions.StartTls);
-                smtp.Authenticate("Ahmadyaseen20@outlook.com", "@Ahmad12345");
+                smtp.Authenticate("mlkmsbh84@outlook.com", "1234mlok1234");
                 smtp.Send(email);
                 smtp.Disconnect(true);
             
