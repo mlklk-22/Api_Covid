@@ -27,6 +27,7 @@ namespace covidvaccineAPI.INFRA.Repository
             p.Add("massageUser", reservation.Massage, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("StatusUser", reservation.Status, dbType: DbType.String, direction: ParameterDirection.Input);
             p.Add("useridd", reservation.Userid, dbType: DbType.Int32, direction: ParameterDirection.Input);
+            p.Add("centerid", reservation.Centerid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             _dbContext.Connection.Execute("RESERVATION_PACKAGE.CreateReservation", p, commandType: CommandType.StoredProcedure);
         }
 

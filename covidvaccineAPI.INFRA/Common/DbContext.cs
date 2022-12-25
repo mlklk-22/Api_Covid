@@ -22,7 +22,7 @@ namespace covidvaccineAPI.INFRA.Common
         {
             get
             {
-                if (_connection == null)
+                if (_connection == null)//
                 {
                     _connection = new OracleConnection(_configuration["ConnectionStrings:DBConnectionString"]);
 

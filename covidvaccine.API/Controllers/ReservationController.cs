@@ -23,6 +23,7 @@ namespace covidvaccine.API.Controllers
             _reservationService.CreateReservation(reservation);
         }
         [HttpDelete]
+        [Route("{id}")]
         public void DeleteReservation(int id)
         {
             _reservationService.DeleteReservation(id);
