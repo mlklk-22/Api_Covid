@@ -84,22 +84,22 @@ namespace covidvaccineAPI.INFRA.Service
             if (useraccount.Numberofvaccines == 1 || useraccount.Numberofvaccines == 2)
             {
                 var email = new MimeMessage();
-                email.From.Add(MailboxAddress.Parse("Ahmadyaseen20@outlook.com"));
+                email.From.Add(MailboxAddress.Parse("mlkmsbh84@outlook.com"));
                 email.To.Add(MailboxAddress.Parse(useraccount.Email));
                 if (useraccount.Numberofvaccines == 1)
                 {
-                    email.Subject = "  Ahmad bani yaseen";
+                    email.Subject = "First Dose";
                     email.Body = new TextPart(TextFormat.Html) { Text = "Ms / Mrs" + " " + useraccount.Fullname + " " + "your have received the first dose " + " " + useraccount.Vaccinename +" " + "COVID 19" +" "+ "Ministry Of Health ." };
                 }
                 else if (useraccount.Numberofvaccines == 2)
                 {
-                    email.Subject = "  Ahmad bani yaseen";
+                    email.Subject = "Second Dose";
                     email.Body = new TextPart(TextFormat.Html) { Text = "Ms / Mrs" + " " + useraccount.Fullname + " " + "your have received the Second dose" + " " + useraccount.Vaccinename + " " + "COVID 19" + " " + "Ministry Of Health ." };
                 }
 
                 using var smtp = new SmtpClient();
                 smtp.Connect("smtp.outlook.com", 587, SecureSocketOptions.StartTls);
-                smtp.Authenticate("Ahmadyaseen20@outlook.com", "@Ahmad12345");
+                smtp.Authenticate("mlkmsbh84@outlook.com", "1234mlok1234");
                 smtp.Send(email);
                 smtp.Disconnect(true);
 

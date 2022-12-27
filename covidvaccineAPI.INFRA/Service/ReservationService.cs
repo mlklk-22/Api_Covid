@@ -64,7 +64,7 @@ namespace covidvaccineAPI.INFRA.Service
                     emaill = item.Email;
                     break;
                 }
-
+                    
             }
            
            
