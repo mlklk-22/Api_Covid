@@ -38,6 +38,13 @@ namespace covidvaccineAPI.INFRA.Repository
             return result.FirstOrDefault();
 
         }
+         public void forgetPass(string username, string newPassword)
+        {
+            var p = new DynamicParameters();
+            p.Add("user_name", username, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("newPass", newPassword, dbType: DbType.String, direction: ParameterDirection.Input);
+            dbContext.Connection.Execute("login_package.User_ForgetP", p, commandType: CommandType.StoredProcedure);
+        }
     }
 
       

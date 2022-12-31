@@ -8,5 +8,6 @@ namespace covidvaccineAPI.CORE.Service
    public interface IJWTService
     {
         string Auth(Useraccount useraccount);
+        void forgetPass(string username, string newPassword);
     }
 }

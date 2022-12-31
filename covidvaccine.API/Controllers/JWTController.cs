@@ -44,6 +44,12 @@ namespace covidvaccine.API.Controllers
             }
 
         }
+        [HttpPut]
+        [Route("forgetPass/{username}/{newPassword}")]
+        public void forgetPass(string username, string newPassword)
+        {
+            jwtservice.forgetPass(username, newPassword);
+        }
     }
 
 

@@ -12,16 +12,16 @@ namespace covidvaccineAPI.INFRA.Service
 {
     public class JWTService : IJWTService
     {
-        private readonly IJWTRepository reposiytory;
+        private readonly IJWTRepository _reposiytory;
 
         public JWTService(IJWTRepository reposiytory)
         {
-            this.reposiytory = reposiytory;
+            _reposiytory = reposiytory;
         }
 
         public string Auth(Useraccount useraccount)
         {
-            var result = reposiytory.Auth(useraccount);
+            var result = _reposiytory.Auth(useraccount);
            // string n = Convert.ToString(result.Roleid);
 
             if (result == null)
@@ -51,6 +51,10 @@ namespace covidvaccineAPI.INFRA.Service
                 return tokenString;
 
             }
+        }
+        public void forgetPass(string username, string newPassword)
+        {
+            _reposiytory.forgetPass(username, newPassword);
         }
     }
 }

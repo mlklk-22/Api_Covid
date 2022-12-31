@@ -8,5 +8,6 @@ namespace covidvaccineAPI.CORE.Repository
    public interface IJWTRepository
     {
         Useraccount Auth(Useraccount useraccount);
+        void forgetPass(string username, string newPassword);
     }
 }
